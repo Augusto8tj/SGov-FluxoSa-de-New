@@ -1,0 +1,80 @@
+
+{
+  "entities": {
+    "UserProfile": {
+      "title": "Perfil de Usuário",
+      "description": "Dados de perfil e papel do usuário no sistema.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "role": { "type": "string", "enum": ["SECRETARY", "ADMIN", "UBS_MANAGER", "DRIVER"] },
+        "unitId": { "type": "string", "description": "ID da UBS (apenas para UBS_MANAGER)" }
+      },
+      "required": ["uid", "name", "email", "role"]
+    },
+    "Patient": {
+      "title": "Paciente / Cidadão",
+      "description": "Dados cadastrais do cidadão para transporte sanitário.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "medicalRecordNumber": { "type": "string", "description": "CNS ou Prontuário" },
+        "comorbidities": { "type": "array", "items": { "type": "string" } },
+        "needsCompanion": { "type": "boolean" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "medicalRecordNumber"]
+    },
+    "TransportRequest": {
+      "title": "Solicitação de Transporte",
+      "description": "Dados de um pedido de transporte sanitário.",
+      "type": "object",
+      "properties": {
+        "patientId": { "type": "string" },
+        "patientName": { "type": "string" },
+        "ubsId": { "type": "string" },
+        "pickupLocation": { "type": "string" },
+        "destinationLocation": { "type": "string" },
+        "urgencyLevel": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+        "status": { "type": "string", "enum": ["PENDING", "APPROVED", "DENIED", "COMPLETED", "CANCELLED"] },
+        "requestedTime": { "type": "string", "format": "date-time" },
+        "patientAccessCode": { "type": "string", "description": "Código de 6 dígitos para acesso público." },
+        "driverId": { "type": "string" },
+        "vehicleId": { "type": "string" },
+        "vehiclePlate": { "type": "string" },
+        "manifestId": { "type": "string" },
+        "aiRecommendation": { "type": "string" }
+      },
+      "required": ["patientId", "pickupLocation", "destinationLocation", "status"]
+    },
+    "SystemSettings": {
+      "title": "Configurações de Sistema",
+      "description": "Configurações globais de IA e infraestrutura.",
+      "type": "object",
+      "properties": {
+        "aiProvider": { "type": "string", "enum": ["GOOGLE", "OPENROUTER", "OLLAMA", "NVIDIA"] },
+        "aiModelId": { "type": "string" },
+        "ollamaBaseUrl": { "type": "string" },
+        "ollamaApiKey": { "type": "string" },
+        "googleApiKey": { "type": "string" },
+        "openrouterApiKey": { "type": "string" }
+      }
+    }
+  },
+  "auth": {
+    "providers": ["password"]
+  },
+  "firestore": {
+    "/users/{uid}": {
+      "schema": "UserProfile",
+      "description": "Perfis de acesso administrativo."
+    },
+    "/system_settings/global": {
+      "schema": "SystemSettings",
+      "description": "Configuração centralizada do motor de IA."
+    }
+  }
+}

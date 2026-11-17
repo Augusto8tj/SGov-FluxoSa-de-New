@@ -1,11 +1,32 @@
-<div align="center">
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+# SGov FluxoSaúde - Rio Claro, RJ
 
-  <h1>Built with AI Studio</h2>
+Sistema de Gestão de Transporte Sanitário para a Prefeitura de Rio Claro - RJ.
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## 🚀 Status do Projeto: TESTE BETA (Dados Reais)
+O sistema saiu da fase de prototipagem e agora opera conectado ao **Firebase Firestore** para gestão da malha viária municipal.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## 🏛️ Arquitetura por Perfis
 
-</div>
+O sistema é dividido em três ecossistemas distintos para garantir a eficiência operacional:
+
+### 1. Central de Comando (Secretário/Admin) - `/dashboard`
+*   **Objetivo**: Gestão macro e tomada de decisão estratégica.
+*   **Recursos**: Painel de aprovação, otimização de rotas por IA, gestão de frota municipal e auditoria.
+
+### 2. Portal das Unidades (Gerentes UBS) - `/ubs-portal`
+*   **Objetivo**: Entrada de demanda e gestão local de pacientes.
+*   **Recursos**: Cadastro de cidadãos (CNS), solicitações de transporte e fornecimento de códigos de acesso.
+
+### 3. Portal do Condutor (Motoristas) - `/driver`
+*   **Objetivo**: Execução de campo e segurança.
+*   **Recursos**: Manifesto digital, checklist de segurança, SOS e relatórios de KM.
+
+## 🤖 Inteligência Artificial
+O sistema utiliza **Genkit (Nvidia Nemotron via OpenRouter)** para:
+- Otimização de rotas em tempo real (Motor Híbrido).
+- Classificação de urgência clínica.
+- Insights estratégicos para o gabinete.
+
+---
+**2024 - Secretaria Municipal de Ordem Pública - PMRC**

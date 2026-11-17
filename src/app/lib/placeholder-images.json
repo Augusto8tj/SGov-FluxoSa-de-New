@@ -1,0 +1,23 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "ubs-1",
+      "description": "Modern health post building",
+      "imageUrl": "https://picsum.photos/seed/ubs1/600/400",
+      "imageHint": "health clinic"
+    },
+    {
+      "id": "ambulance-1",
+      "description": "Emergency ambulance vehicle",
+      "imageUrl": "https://picsum.photos/seed/amb1/600/400",
+      "imageHint": "ambulance"
+    },
+    {
+      "id": "patient-1",
+      "description": "Patient care and monitoring",
+      "imageUrl": "https://picsum.photos/seed/pat1/600/400",
+      "imageHint": "patient care"
+    }
+  ]
+}
